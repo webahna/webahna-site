@@ -1,0 +1,117 @@
+/* ─── PRICING ─── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.pricing-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+
+  transition: border-color 0.2s;
+}
+.pricing-card:hover {
+  border-color: rgba(75, 95, 232, 0.4);
+}
+.pricing-card.featured {
+  border-color: var(--blue);
+  background: rgba(75, 95, 232, 0.07);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--blue);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.9rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.pricing-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 1rem 0 0.25rem;
+  color: var(--white);
+}
+.price sup {
+  font-size: 1.2rem;
+  vertical-align: super;
+}
+.price-note {
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  margin-bottom: 1.5rem;
+}
+
+.pricing-features {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+.pricing-features li {
+  font-size: 0.9rem;
+  color: var(--gray-200);
+  padding: 0.45rem 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.pricing-features li::before {
+  content: "✓";
+  color: var(--blue-light);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.btn-full {
+  width: 100%;
+  padding: 0.85rem 0px;
+  border-radius: 10px;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+.btn-full.outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.btn-full.outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.btn-full.solid {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+}
+.btn-full.solid:hover {
+  background: var(--blue-light);
+}
+
+@media (max-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}

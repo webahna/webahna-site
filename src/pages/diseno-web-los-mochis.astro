@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/index/Nav.astro";
+import Hero from "../components/mochis/Hero.astro";
+import TrustBar from "../components/mochis/TrustBar.astro";
+import Audience from "../components/mochis/Audience.astro";
+import Why from "../components/mochis/Why.astro";
+import Services from "../components/mochis/Services.astro";
+import Zones from "../components/mochis/Zones.astro";
+import Faq from "../components/mochis/Faq.astro";
+import Cta from "../components/mochis/Cta.astro";
+import Footer from "../components/index/Footer.astro";
+
+const site = import.meta.env.SITE;
+const path = "/diseno-web-los-mochis";
+---
+
+<Layout
+  title="Diseño de Páginas Web en Los Mochis | Webahna"
+  description="Creamos páginas web profesionales para negocios en Los Mochis. Diseño moderno, SEO local, optimización para Google y soporte personalizado. Solicita tu cotización."
+  keywords="diseño web Los Mochis, páginas web Los Mochis, desarrollo web Sinaloa, agencia web Los Mochis Sinaloa, diseño web Sinaloa, crear página web Los Mochis"
+  canonical={site + path}
+  ogtitle="Diseño Web en Los Mochis, Sinaloa | Webahna"
+  ogdescription="Agencia local de diseño y desarrollo web en Los Mochis. Sitios que posicionan en Google y convierten visitantes en clientes."
+  ogurl={site + path}
+>
+  <Nav>
+    <div class="nav-location">Los Mochis, Sinaloa</div>
+    <a href="#contacto" class="btn-nav">Cotiza gratis →</a>
+  </Nav>
+  <Hero />
+  <TrustBar />
+  <Audience />
+  <Why />
+  <Services />
+  <Zones />
+  <Faq />
+  <Cta />
+  <Footer />
+</Layout>

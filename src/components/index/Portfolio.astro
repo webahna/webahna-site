@@ -1,0 +1,63 @@
+---
+import "../../styles/index/portfolio.css";
+import pointApp from "../../assets/point-app.jpg";
+import intrepido from "../../assets/intrepido.jpg";
+import dashboard from "../../assets/dashboard.jpg";
+---
+
+<section id="proyectos">
+  <p class="section-label">// Proyectos</p>
+  <h2 class="section-title">Trabajo que habla por sí solo.</h2>
+  <p class="section-subtitle">
+    Una muestra de proyectos recientes. Cada uno diseñado con estrategia, no
+    solo estética.
+  </p>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <div class="portfolio-mock" style="min-height: 400px; max-height: 400px;">
+        <!-- <div class="mock-bar blue"></div>
+          <div class="mock-bar short"></div> -->
+        <div class="mock-image-area" style="font-size: 3rem;">
+          <img src={intrepido.src} alt="" style="object-fit: contain;" />
+        </div>
+        <!-- <div style="display:flex; gap:8px;">
+            <div class="mock-bar" style="flex:1; height:8px;"></div>
+            <div
+              class="mock-bar"
+              style="flex:1; height:8px; background:rgba(75,95,232,0.4);"
+            >
+            </div>
+          </div> -->
+      </div>
+      <div class="portfolio-label">
+        <h4>IntrepidoMX — E-commerce</h4>
+        <span>Next.js · React · TypeScript · Tailwind CSS</span>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-mock">
+        <!-- <div class="mock-bar blue" style="width:45%;"></div> -->
+        <div class="mock-image-area" style="font-size:2rem; min-height:130px;">
+          <img src={dashboard.src} alt="" />
+        </div>
+      </div>
+      <div class="portfolio-label">
+        <h4>Dashboard Analytics</h4>
+        <span>Node.js · Express.js · Pug · ORM Sequelize</span>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-mock">
+        <div class="mock-bar blue" style="width:55%;"></div>
+        <div class="mock-image-area" style="font-size:2rem; min-height:130px;">
+          <img src={pointApp.src} alt="" />
+        </div>
+      </div>
+      <div class="portfolio-label">
+        <h4>Point App - Sistema de Entregas de Garrafones de Agua</h4>
+        <span>Diseño UX/UI</span>
+      </div>
+    </div>
+  </div>
+</section>

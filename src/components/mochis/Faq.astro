@@ -1,0 +1,89 @@
+---
+import "../../styles/mochis/faq.css";
+---
+
+<!-- FAQ -->
+<section class="faq-section">
+  <p class="eyebrow">Preguntas frecuentes</p>
+  <div class="faq-align-text">
+    <h2>Lo que los clientes de<br />Los Mochis nos preguntan.</h2>
+  </div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Cuánto cuesta una página web en Los Mochis?
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a">
+        Cada negocio tiene necesidades diferentes. Nuestras páginas web
+        comienzan desde $3,500 MXN para una landing page profesional, $6,500 MXN
+        para un sitio web completo con SEO y hasta $15,000 MXN para una tienda
+        en línea con administración de productos y pagos en línea. La primera
+        consulta es gratuita y te ayudamos a elegir la mejor opción para tu
+        negocio.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Cuánto tiempo tarda en estar lista mi página?
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a">
+        Una landing page entre 1 y 2 semanas. Un sitio multi-sección entre 3 y 4
+        semanas. Una tienda en línea de 5 a 6 semanas. Los tiempos incluyen
+        diseño, desarrollo, pruebas y publicación.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Mi negocio puede aparecer en Google Maps con esto?
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a">
+        Sí. Incluimos optimización de tu ficha en Google Business Profile (antes
+        Google My Business) para que aparezcas en búsquedas locales y en Google
+        Maps cuando alguien busque tu giro en Los Mochis.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Necesito saber de tecnología para manejar mi página?
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a">
+        No. Entregamos el sitio listo para que lo uses sin conocimiento técnico.
+        Si lo necesitas, construimos con un panel de administración fácil donde
+        puedes actualizar textos, fotos y precios desde tu celular.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Tienen oficina en Los Mochis? ¿Podemos reunirnos?
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a">
+        Trabajamos de forma remota, lo que nos permite atender clientes en todo
+        Sinaloa sin costo adicional. Las reuniones son por videollamada o
+        WhatsApp. Esto también nos permite ofrecerte mejores precios sin gastos
+        de oficina.
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains("open");
+    document
+      .querySelectorAll(".faq-item.open")
+      .forEach((el) => el.classList.remove("open"));
+    if (!isOpen) item.classList.add("open");
+    btn.querySelector(".faq-toggle").textContent = item.classList.contains(
+      "open",
+    )
+      ? "−"
+      : "+";
+  }
+</script>

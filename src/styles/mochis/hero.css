@@ -1,0 +1,271 @@
+/* ── HERO ── */
+.hero {
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding: 150px 5% 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(75, 95, 232, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(75, 95, 232, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    black 40%,
+    transparent 100%
+  );
+}
+/* Mapa SVG decorativo de fondo */
+.hero-map-bg {
+  position: absolute;
+  right: -5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55%;
+  opacity: 0.035;
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(75, 95, 232, 0.18) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.local-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 200, 66, 0.1);
+  border: 1px solid rgba(245, 200, 66, 0.3);
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--font-head);
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+.hero h1 {
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--blue-mid);
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--gray-400);
+  max-width: 460px;
+  margin-bottom: 2rem;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0.875rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+.btn-primary:hover {
+  background: var(--blue-mid);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--gray-200);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 0.875rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Mapa visual hero */
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--navy-card);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.map-header {
+  background: var(--navy-soft);
+  padding: 0.875rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.map-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.map-area {
+  position: relative;
+  height: 260px;
+  background: #0f1621;
+  overflow: hidden;
+}
+
+/* SVG mapa simplificado de Sinaloa/Los Mochis */
+.map-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.location-pin {
+  position: absolute;
+  top: 33%;
+  left: 40%;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(-50%, -100%);
+  }
+  50% {
+    transform: translate(-50%, calc(-100% - 6px));
+  }
+}
+
+.pin-bubble {
+  background: var(--blue);
+  color: var(--white);
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  margin-bottom: 4px;
+  box-shadow: 0 4px 20px rgba(75, 95, 232, 0.5);
+}
+
+.pin-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow:
+    0 0 0 5px rgba(75, 95, 232, 0.25),
+    0 0 0 10px rgba(75, 95, 232, 0.1);
+}
+
+.map-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.map-stat {
+  padding: 1rem 1.25rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+.map-stat:last-child {
+  border-right: none;
+}
+
+.map-stat strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+.map-stat span {
+  font-size: 0.78rem;
+  color: var(--gray-400);
+}
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 150px;
+    gap: 2.5rem;
+  }
+  .hero-visual {
+    order: 1;
+  }
+}

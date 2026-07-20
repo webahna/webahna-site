@@ -1,0 +1,33 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #4b5fe8;
+  --blue-light: #6b7ff5;
+  --blue-pale: #e8ebff;
+  --navy: #0d1117;
+  --navy-mid: #161b26;
+  --navy-soft: #1e2535;
+  --navy-card: #131820;
+  --white: #ffffff;
+  --gray-100: #f5f6fa;
+  --gray-200: #e4e6ef;
+  --gray-400: #9ea3b5;
+  --gray-600: #5c6070;
+  --font: "Plus Jakarta Sans", sans-serif;
+  --mono: "DM Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+}

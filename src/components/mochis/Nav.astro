@@ -1,0 +1,12 @@
+---
+import "../../styles/mochis/nav.css";
+import webahnaLogo from "../../assets/logo.svg";
+---
+
+<!-- MOCHIS -->
+<nav>
+  <a href="https://webahna.com" class="nav-logo">
+    <img src={webahnaLogo.src} alt="Webahna Logo" class="logo" />
+  </a>
+  <slot />
+</nav>

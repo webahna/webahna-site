@@ -1,0 +1,44 @@
+/* ─── CTA FINAL ─── */
+.cta-section {
+  text-align: center;
+  padding: 100px 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse,
+    rgba(75, 95, 232, 0.2) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.cta-section h2 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+}
+
+.cta-section p {
+  color: var(--gray-400);
+  font-size: 1.05rem;
+  max-width: 420px;
+  margin: 0 auto 2.5rem;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}

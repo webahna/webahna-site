@@ -1,0 +1,11 @@
+---
+import "../../styles/index/nav.css";
+import webahnaLogo from "../../assets/logo.svg";
+---
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src={webahnaLogo.src} alt="Webahna Logo" class="logo" />
+  </a>
+  <slot />
+</nav>
