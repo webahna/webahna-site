@@ -29,13 +29,13 @@ const plans = [
 
 <section id="precios" class="scroll-mt-24 bg-white py-24 sm:py-28 lg:py-32">
   <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-    <div class="mx-auto max-w-3xl text-center">
+    <div class="mx-auto max-w-3xl text-center" data-reveal="up">
       <p class="text-sm font-bold uppercase tracking-[0.2em] text-brand">04 / Precios</p>
       <h2 class="mt-4 text-balance text-4xl font-bold tracking-[-0.04em] text-ink sm:text-5xl">Inversión clara desde el inicio.</h2>
       <p class="mt-5 text-lg leading-8 text-slate-600">Tres puntos de partida para necesidades distintas. Sin costos ocultos y con alcance definido.</p>
     </div>
 
-    <div class="mt-14 grid items-stretch gap-5 lg:grid-cols-3">
+    <div class="mt-14 grid items-stretch gap-5 lg:grid-cols-3" data-reveal="up" data-delay="160">
       {plans.map((plan) => (
         <article
           class:list={[

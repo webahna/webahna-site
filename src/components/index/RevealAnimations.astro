@@ -1,0 +1,121 @@
+<style is:global>
+  [data-reveal],
+  [data-reveal-group] > * {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+
+  [data-reveal="down"] {
+    transform: translate3d(0, -18px, 0);
+  }
+
+  [data-reveal="left"] {
+    transform: translate3d(-28px, 0, 0);
+  }
+
+  [data-reveal="right"] {
+    transform: translate3d(28px, 0, 0);
+  }
+
+  [data-reveal="scale"] {
+    transform: scale(.97);
+  }
+
+  [data-revealed],
+  [data-reveal-group][data-revealed] > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    [data-reveal-group] > * {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const entrance = {
+    up: "translate3d(0, 28px, 0)",
+    down: "translate3d(0, -18px, 0)",
+    left: "translate3d(-28px, 0, 0)",
+    right: "translate3d(28px, 0, 0)",
+    scale: "scale(.97)",
+  } as const;
+
+  const playEntrance = (element: HTMLElement, delay = 0) => {
+    const direction = element.dataset.reveal as keyof typeof entrance | undefined;
+    const animation = element.animate(
+      [
+        { opacity: 0, transform: entrance[direction ?? "up"] },
+        { opacity: 1, transform: "none" },
+      ],
+      {
+        duration: direction === "scale" ? 760 : 680,
+        delay,
+        easing: "cubic-bezier(.22, 1, .36, 1)",
+        fill: "both",
+      },
+    );
+
+    return animation;
+  };
+
+  const initializeReveals = () => {
+    const targets = document.querySelectorAll<HTMLElement>("[data-reveal], [data-reveal-group]");
+
+    if (
+      reducedMotion.matches ||
+      !("IntersectionObserver" in window) ||
+      typeof Element.prototype.animate !== "function"
+    ) {
+      targets.forEach((target) => target.setAttribute("data-revealed", ""));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const target = entry.target as HTMLElement;
+          const baseDelay = Number(target.dataset.delay ?? 0);
+
+          if (target.hasAttribute("data-reveal-group")) {
+            const animations = Array.from(target.children).map((child, index) => {
+              const item = child as HTMLElement;
+              item.dataset.reveal ||= "up";
+              return playEntrance(item, baseDelay + index * 90);
+            });
+
+            Promise.all(animations.map((animation) => animation.finished))
+              .then(() => {
+                target.setAttribute("data-revealed", "");
+                animations.forEach((animation) => animation.cancel());
+              })
+              .catch(() => {});
+          } else {
+            const animation = playEntrance(target, baseDelay);
+            animation.finished
+              .then(() => {
+                target.setAttribute("data-revealed", "");
+                animation.cancel();
+              })
+              .catch(() => {});
+          }
+
+          observer.unobserve(target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8%" },
+    );
+
+    targets.forEach((target) => observer.observe(target));
+  };
+
+  initializeReveals();
+</script>
