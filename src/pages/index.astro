@@ -9,24 +9,143 @@ import TechStack from "../components/index/TechStack.astro";
 import Pricing from "../components/index/Pricing.astro";
 import Cta from "../components/index/Cta.astro";
 import Footer from "../components/index/Footer.astro";
+
+const canonical = new URL("/", Astro.site ?? Astro.url.origin).href;
+const description =
+  "Diseñamos y desarrollamos páginas web, tiendas en línea y productos digitales rápidos, estratégicos y enfocados en hacer crecer tu negocio.";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${canonical}#organization`,
+      name: "Webahna",
+      url: canonical,
+      logo: new URL("/favicon.svg", canonical).href,
+      description,
+      email: "hola@webahna.com",
+      telephone: "+52 668 234 8809",
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "hola@webahna.com",
+        telephone: "+52 668 234 8809",
+        availableLanguage: ["Spanish"],
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "México",
+      },
+      knowsAbout: [
+        "Diseño web",
+        "Desarrollo web",
+        "Comercio electrónico",
+        "Diseño UX/UI",
+        "SEO técnico",
+        "Automatización de procesos",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${canonical}#website`,
+      url: canonical,
+      name: "Webahna",
+      description,
+      inLanguage: "es-MX",
+      publisher: {
+        "@id": `${canonical}#organization`,
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: "Diseño de páginas web profesionales para negocios | Webahna",
+      description,
+      inLanguage: "es-MX",
+      isPartOf: {
+        "@id": `${canonical}#website`,
+      },
+      about: {
+        "@id": `${canonical}#organization`,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Diseño y desarrollo web",
+      description:
+        "Diseño y desarrollo de páginas web, tiendas en línea, productos digitales, SEO y automatización para negocios en México.",
+      serviceType: "Diseño y desarrollo web profesional",
+      provider: {
+        "@id": `${canonical}#organization`,
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "México",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Planes de desarrollo web",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            name: "Plan Esencial",
+            price: "3500",
+            priceCurrency: "MXN",
+            url: `${canonical}#precios`,
+          },
+          {
+            "@type": "Offer",
+            name: "Plan Profesional",
+            price: "6500",
+            priceCurrency: "MXN",
+            url: `${canonical}#precios`,
+          },
+          {
+            "@type": "Offer",
+            name: "Plan E-Commerce",
+            price: "15000",
+            priceCurrency: "MXN",
+            url: `${canonical}#precios`,
+          },
+        ],
+      },
+    },
+  ],
+};
 ---
 
-<Layout title="Webahna - Diseño & Desarrollo Web">
-  <Nav>
-    <ul class="nav-links">
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#precios">Precios</a></li>
-    </ul>
-    <a href="#contacto" class="btn-nav">Hablemos →</a>
-  </Nav>
-  <Hero />
-  <Services />
-  <Process />
-  <Portfolio />
-  <TechStack />
-  <Pricing />
-  <Cta />
-  <Footer />
+<Layout
+  title="Diseño de Páginas Web Profesionales para Negocios | Webahna"
+  description={description}
+  keywords="diseño web, desarrollo web, páginas web profesionales, tiendas en línea, diseño UX UI, agencia web México"
+  canonical={canonical}
+  ogtitle="Webahna | Diseño y desarrollo web que genera resultados"
+  ogdescription="Creamos experiencias web a medida para atraer clientes, generar confianza y hacer crecer tu marca."
+  ogurl={canonical}
+  ogimage="/og-image.png"
+  ogimagealt="Webahna: webs que convierten ideas en negocios"
+  structuredData={structuredData}
+>
+  <div class="min-h-screen bg-white text-ink">
+    <a
+      href="#contenido"
+      class="fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-ink px-4 py-3 font-bold text-white transition-transform focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2"
+    >
+      Saltar al contenido
+    </a>
+    <Nav />
+    <main id="contenido">
+      <Hero />
+      <Services />
+      <Process />
+      <Portfolio />
+      <TechStack />
+      <Pricing />
+      <Cta />
+    </main>
+    <Footer />
+  </div>
 </Layout>

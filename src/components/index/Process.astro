@@ -1,51 +1,40 @@
 ---
-import "../../styles/index/process.css";
+const steps = [
+  { title: "Descubrimiento", text: "Entendemos tu negocio, tus objetivos y a quién necesitas llegar." },
+  { title: "Diseño", text: "Definimos la experiencia y el lenguaje visual antes de construir." },
+  { title: "Desarrollo", text: "Convertimos el diseño en un producto rápido, sólido y adaptable." },
+  { title: "Lanzamiento", text: "Probamos, publicamos y acompañamos la evolución del proyecto." },
+];
 ---
 
-<section id="proceso" class="process-section">
-  <p class="section-label">// Cómo trabajamos</p>
-  <h2 class="section-title">Un proceso claro, sin sorpresas.</h2>
-  <p class="section-subtitle">
-    Cuatro etapas que llevan tu proyecto del concepto al lanzamiento de forma
-    ordenada y transparente.
-  </p>
+<section id="proceso" class="scroll-mt-24 bg-ink py-24 text-white sm:py-28 lg:py-32">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+    <div class="grid gap-8 lg:grid-cols-2 lg:items-end">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-[#91a3ff]">02 / Proceso</p>
+        <h2 class="mt-4 max-w-xl text-balance text-4xl font-bold tracking-[-0.04em] sm:text-5xl">
+          Un proceso claro.<br />Sin sorpresas.
+        </h2>
+      </div>
+      <p class="max-w-xl text-lg leading-8 text-slate-300 lg:justify-self-end">
+        Cuatro etapas, comunicación directa y decisiones visibles. Siempre sabrás
+        qué estamos haciendo y por qué.
+      </p>
+    </div>
 
-  <div class="process-steps">
-    <div class="process-step">
-      <p class="step-num">01</p>
-      <div class="step-dot"></div>
-      <h3>Descubrimiento</h3>
-      <p>
-        Entendemos tu negocio, objetivos y audiencia. Definimos el alcance y el
-        plan de trabajo juntos.
-      </p>
-    </div>
-    <div class="process-step">
-      <p class="step-num">02</p>
-      <div class="step-dot"></div>
-      <h3>Diseño</h3>
-      <p>
-        Creamos wireframes y el diseño visual final en Figma. Tú apruebas antes
-        de que se escriba una línea de código.
-      </p>
-    </div>
-    <div class="process-step">
-      <p class="step-num">03</p>
-      <div class="step-dot"></div>
-      <h3>Desarrollo</h3>
-      <p>
-        Construimos tu sitio con código limpio y escalable. Pruebas en cada
-        etapa para garantizar calidad.
-      </p>
-    </div>
-    <div class="process-step">
-      <p class="step-num">04</p>
-      <div class="step-dot"></div>
-      <h3>Lanzamiento</h3>
-      <p>
-        Publicamos, optimizamos y te entregamos todo. Soporte post-lanzamiento
-        incluido siempre.
-      </p>
-    </div>
+    <ol class="mt-16 grid gap-px overflow-hidden rounded-3xl border border-white/15 bg-white/15 md:grid-cols-2 lg:grid-cols-4">
+      {steps.map((step, index) => (
+        <li class="group relative min-h-80 bg-ink p-7 transition-colors duration-200 hover:bg-[#111733] sm:p-8">
+          <span class="font-mono text-sm font-bold text-[#91a3ff]">0{index + 1}</span>
+          <div class="mt-12 grid size-12 place-items-center rounded-full border border-white/20 text-[#91a3ff] transition-colors duration-200 group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="size-5">
+              <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="mt-8 text-2xl font-bold tracking-tight">{step.title}</h3>
+          <p class="mt-4 leading-7 text-slate-400">{step.text}</p>
+        </li>
+      ))}
+    </ol>
   </div>
 </section>

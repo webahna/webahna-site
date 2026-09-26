@@ -1,14 +1,12 @@
 ---
-import "../../styles/mochis/trustbar.css";
+const benefits = ["SEO local desde el inicio", "Diseño responsive", "Entrega puntual", "Soporte en español", "Sin contratos largos"];
 ---
 
-<div class="trust-bar">
-  <span class="trust-label">Incluido siempre</span>
-  <div class="trust-items">
-    <span class="trust-item">SEO local desde el inicio</span>
-    <span class="trust-item">Diseño responsive</span>
-    <span class="trust-item">Entrega puntual</span>
-    <span class="trust-item">Soporte en español</span>
-    <span class="trust-item">Sin contratos largos</span>
+<section class="border-y border-brand/15 bg-brand text-white" aria-labelledby="incluido-title">
+  <div class="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-6 sm:px-8 lg:flex-row lg:items-center lg:px-12">
+    <p id="incluido-title" class="shrink-0 text-xs font-black uppercase tracking-[.18em] text-blue-100">Incluido siempre</p>
+    <div class="grid flex-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+      {benefits.map((benefit) => <div class="flex items-center gap-2 text-sm font-semibold"><svg class="size-4 shrink-0 text-blue-200" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4 10 4 4 8-8" /></svg>{benefit}</div>)}
+    </div>
   </div>
-</div>
+</section>

@@ -1,67 +1,87 @@
 ---
-import "../../styles/index/pricing.css";
+const plans = [
+  {
+    name: "Esencial",
+    description: "Para emprendedores que necesitan comenzar con una base profesional.",
+    price: "3,500",
+    delivery: "Entrega desde 1 semana",
+    features: ["Landing page", "Diseño responsive", "Formulario de contacto", "SEO básico", "1 ronda de revisiones"],
+    featured: false,
+  },
+  {
+    name: "Profesional",
+    description: "Para negocios que quieren una presencia completa y preparada para crecer.",
+    price: "6,500",
+    delivery: "Entrega desde 2 semanas",
+    features: ["Hasta 8 páginas", "Diseño UX/UI personalizado", "Blog o noticias", "SEO técnico", "Google Analytics", "3 rondas de revisiones"],
+    featured: true,
+  },
+  {
+    name: "E-Commerce",
+    description: "Para marcas listas para vender productos y gestionar pedidos en línea.",
+    price: "15,000",
+    delivery: "Entrega de 4 a 6 semanas",
+    features: ["Tienda en línea completa", "100 productos o más", "Pasarela de pago", "Panel de administración", "SEO para e-commerce", "Capacitación incluida"],
+    featured: false,
+  },
+];
 ---
 
-<section id="precios">
-  <p class="section-label">// Precios</p>
-  <h2 class="section-title">Inversión transparente.</h2>
-  <p class="section-subtitle">
-    Sin costos ocultos ni sorpresas. Elige el plan que se adapta a tu momento.
-  </p>
-
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <h3>Esencial</h3>
-      <p style="font-size:0.875rem; color:var(--gray-400);">
-        Para emprendedores y startups que arrancan.
-      </p>
-      <div class="price"><sup>$</sup>3,500</div>
-      <p class="price-note">Pago único · Entrega en 1 semana</p>
-      <ul class="pricing-features">
-        <li>Landing page de 1 página</li>
-        <li>Diseño responsive</li>
-        <li>Formulario de contacto</li>
-        <li>SEO básico</li>
-        <li>1 ronda de revisiones</li>
-      </ul>
-      <a href="#contacto" class="btn-full outline">Comenzar</a>
+<section id="precios" class="scroll-mt-24 bg-white py-24 sm:py-28 lg:py-32">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-sm font-bold uppercase tracking-[0.2em] text-brand">04 / Precios</p>
+      <h2 class="mt-4 text-balance text-4xl font-bold tracking-[-0.04em] text-ink sm:text-5xl">Inversión clara desde el inicio.</h2>
+      <p class="mt-5 text-lg leading-8 text-slate-600">Tres puntos de partida para necesidades distintas. Sin costos ocultos y con alcance definido.</p>
     </div>
 
-    <div class="pricing-card featured">
-      <span class="popular-badge">⭐ Más popular</span>
-      <h3>Profesional</h3>
-      <p style="font-size:0.875rem; color:var(--gray-400);">
-        Para negocios que necesitan presencia completa.
-      </p>
-      <div class="price"><sup>$</sup>6,500</div>
-      <p class="price-note">Pago único · Entrega en 2 semanas</p>
-      <ul class="pricing-features">
-        <li>Sitio multi-página (hasta 8)</li>
-        <li>Diseño UI/UX personalizado</li>
-        <li>Blog o sección de noticias</li>
-        <li>SEO técnico avanzado</li>
-        <li>Google Analytics integrado</li>
-        <li>3 rondas de revisiones</li>
-      </ul>
-      <a href="#contacto" class="btn-full solid">Comenzar →</a>
-    </div>
+    <div class="mt-14 grid items-stretch gap-5 lg:grid-cols-3">
+      {plans.map((plan) => (
+        <article
+          class:list={[
+            "relative flex flex-col rounded-3xl border p-7 sm:p-8",
+            plan.featured
+              ? "border-brand bg-ink text-white shadow-[0_10px_0_#4665e8] lg:-translate-y-3"
+              : "border-slate-200 bg-[#f8f9fc] text-ink",
+          ]}
+        >
+          {plan.featured && (
+            <span class="absolute right-6 top-0 -translate-y-1/2 rounded-full bg-brand px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white">Más elegido</span>
+          )}
+          <h3 class="text-2xl font-bold tracking-tight">{plan.name}</h3>
+          <p class:list={["mt-3 min-h-20 leading-7", plan.featured ? "text-slate-300" : "text-slate-600"]}>{plan.description}</p>
+          <div class="mt-7 flex items-start">
+            <span class:list={["mt-2 text-lg font-bold", plan.featured ? "text-[#91a3ff]" : "text-brand"]}>$</span>
+            <span class="text-5xl font-bold tracking-[-0.05em] tabular-nums">{plan.price}</span>
+            <span class:list={["ml-2 mt-auto pb-1 text-sm", plan.featured ? "text-slate-400" : "text-slate-500"]}>MXN</span>
+          </div>
+          <p class:list={["mt-2 text-sm", plan.featured ? "text-slate-400" : "text-slate-500"]}>Pago único · {plan.delivery}</p>
 
-    <div class="pricing-card">
-      <h3>E-Commerce</h3>
-      <p style="font-size:0.875rem; color:var(--gray-400);">
-        Vende en línea desde el día uno.
-      </p>
-      <div class="price"><sup>$</sup>15,000</div>
-      <p class="price-note">Pago único · Entrega en 4-6 semanas</p>
-      <ul class="pricing-features">
-        <li>Tienda online completa</li>
-        <li>Hasta 100 productos o más</li>
-        <li>Pasarela de pago integrada</li>
-        <li>Panel de administración</li>
-        <li>SEO para e-commerce</li>
-        <li>Capacitación incluida</li>
-      </ul>
-      <a href="#contacto" class="btn-full outline">Comenzar</a>
+          <ul class:list={["my-8 space-y-3 border-t pt-7", plan.featured ? "border-white/15" : "border-slate-200"]}>
+            {plan.features.map((feature) => (
+              <li class="flex gap-3 text-sm leading-6">
+                <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" class:list={["mt-0.5 size-5 shrink-0", plan.featured ? "text-[#91a3ff]" : "text-brand"]}>
+                  <path d="m4 10 4 4 8-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="#contacto"
+            class:list={[
+              "mt-auto inline-flex min-h-12 items-center justify-center rounded-xl px-5 font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4",
+              plan.featured
+                ? "bg-brand text-white hover:bg-[#5d78ee] focus-visible:ring-offset-ink"
+                : "border border-slate-300 bg-white text-ink hover:border-ink hover:bg-slate-50",
+            ]}
+          >
+            Quiero este plan
+          </a>
+        </article>
+      ))}
     </div>
+    <p class="mt-9 text-center text-sm text-slate-500">Cada proyecto puede ajustarse a tus necesidades. Solicita una cotización personalizada sin compromiso.</p>
   </div>
 </section>

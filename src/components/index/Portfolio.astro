@@ -1,63 +1,152 @@
 ---
-import "../../styles/index/portfolio.css";
+import { Image } from "astro:assets";
 import pointApp from "../../assets/point-app.jpg";
 import intrepido from "../../assets/intrepido.jpg";
 import dashboard from "../../assets/dashboard.jpg";
 ---
 
-<section id="proyectos">
-  <p class="section-label">// Proyectos</p>
-  <h2 class="section-title">Trabajo que habla por sí solo.</h2>
-  <p class="section-subtitle">
-    Una muestra de proyectos recientes. Cada uno diseñado con estrategia, no
-    solo estética.
-  </p>
+<section id="proyectos" class="scroll-mt-24 bg-white py-24 sm:py-28 lg:py-32">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+    <div class="grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-brand">03 / Proyectos</p>
+        <h2 class="mt-4 max-w-xl text-balance text-4xl font-bold tracking-[-0.04em] text-ink sm:text-5xl">
+          Trabajo que habla por sí solo.
+        </h2>
+      </div>
+      <p class="max-w-2xl text-lg leading-8 text-slate-600 lg:justify-self-end">
+        Una selección de experiencias diseñadas con estrategia, detalle y una
+        intención clara: resolver mejor.
+      </p>
+    </div>
 
-  <div class="portfolio-grid">
-    <div class="portfolio-item">
-      <div class="portfolio-mock" style="min-height: 400px; max-height: 400px;">
-        <!-- <div class="mock-bar blue"></div>
-          <div class="mock-bar short"></div> -->
-        <div class="mock-image-area" style="font-size: 3rem;">
-          <img src={intrepido.src} alt="" style="object-fit: contain;" />
+    <div class="mt-14 grid gap-6 lg:grid-cols-2">
+      <article class="group">
+      <div class="h-[28rem] overflow-hidden rounded-3xl border border-slate-200 bg-[#f4f6fb] sm:h-[38rem]">
+        <div class="flex min-h-14 items-center gap-3 border-b border-slate-200 bg-white px-4 sm:px-5">
+          <div class="flex shrink-0 gap-1.5" aria-hidden="true">
+            <span class="size-2.5 rounded-full bg-[#ff6b6b]"></span>
+            <span class="size-2.5 rounded-full bg-[#ffd166]"></span>
+            <span class="size-2.5 rounded-full bg-[#55c890]"></span>
+          </div>
+          <div class="min-w-0 flex-1 truncate rounded-full bg-slate-100 px-4 py-2 text-center text-xs font-medium text-slate-500">
+            decostore-gules.vercel.app
+          </div>
+          <a
+            href="https://decostore-gules.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir Decostore en una nueva pestaña"
+            class="grid size-9 shrink-0 place-items-center rounded-full text-slate-500 transition-colors hover:bg-brand hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="size-4">
+              <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
         </div>
-        <!-- <div style="display:flex; gap:8px;">
-            <div class="mock-bar" style="flex:1; height:8px;"></div>
-            <div
-              class="mock-bar"
-              style="flex:1; height:8px; background:rgba(75,95,232,0.4);"
-            >
-            </div>
-          </div> -->
+        <iframe
+          src="https://decostore-gules.vercel.app/"
+          title="Vista previa interactiva del proyecto Decostore"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          class="h-[calc(100%-3.5rem)] w-full bg-white"
+        >
+          <a href="https://decostore-gules.vercel.app/">Visitar Decostore</a>
+        </iframe>
       </div>
-      <div class="portfolio-label">
-        <h4>IntrepidoMX — E-commerce</h4>
-        <span>Next.js · React · TypeScript · Tailwind CSS</span>
-      </div>
-    </div>
-    <div class="portfolio-item">
-      <div class="portfolio-mock">
-        <!-- <div class="mock-bar blue" style="width:45%;"></div> -->
-        <div class="mock-image-area" style="font-size:2rem; min-height:130px;">
-          <img src={dashboard.src} alt="" />
+      <div class="flex items-start justify-between gap-5 px-1 pt-5">
+        <div>
+          <h3 class="text-2xl font-bold tracking-tight text-ink">Decostore</h3>
+          <p class="mt-1 text-slate-500">E-commerce · Experiencia web interactiva</p>
         </div>
+        <a
+          href="https://decostore-gules.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visitar el proyecto Decostore"
+          class="grid size-11 shrink-0 place-items-center rounded-full border border-slate-300 text-ink transition-colors hover:border-brand hover:bg-brand hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="size-5">
+            <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
       </div>
-      <div class="portfolio-label">
-        <h4>Dashboard Analytics</h4>
-        <span>Node.js · Express.js · Pug · ORM Sequelize</span>
-      </div>
-    </div>
-    <div class="portfolio-item">
-      <div class="portfolio-mock">
-        <div class="mock-bar blue" style="width:55%;"></div>
-        <div class="mock-image-area" style="font-size:2rem; min-height:130px;">
-          <img src={pointApp.src} alt="" />
+    </article>
+
+      <article class="group">
+        <div class="relative h-[28rem] overflow-hidden rounded-3xl border border-slate-200 bg-[#f4f6fb] sm:h-[38rem]">
+          <Image
+            src={intrepido}
+            alt="Tienda en línea IntrepidoMX"
+            widths={[640, 960, 1280]}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            loading="lazy"
+            class="h-full w-full object-cover object-top transition-transform duration-500 motion-reduce:transition-none group-hover:scale-[1.025]"
+          />
+          <span class="absolute left-5 top-5 rounded-full bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-ink shadow-sm">E-commerce</span>
         </div>
-      </div>
-      <div class="portfolio-label">
-        <h4>Point App - Sistema de Entregas de Garrafones de Agua</h4>
-        <span>Diseño UX/UI</span>
-      </div>
+        <div class="flex items-start justify-between gap-5 px-1 pt-5">
+          <div>
+            <h3 class="text-2xl font-bold tracking-tight text-ink">IntrepidoMX</h3>
+            <p class="mt-1 text-slate-500">Next.js · React · TypeScript · Tailwind</p>
+          </div>
+          <span class="grid size-11 shrink-0 place-items-center rounded-full border border-slate-300 text-ink transition-colors group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="size-5">
+              <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </div>
+      </article>
+
+      <article class="group">
+        <div class="relative h-64 overflow-hidden rounded-3xl border border-slate-200 bg-[#f4f6fb] sm:h-80">
+          <Image
+            src={dashboard}
+            alt="Panel de analítica para gestión de negocio"
+            widths={[640, 960, 1280]}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            loading="lazy"
+            class="h-full w-full object-cover object-top transition-transform duration-500 motion-reduce:transition-none group-hover:scale-[1.025]"
+          />
+          <span class="absolute left-5 top-5 rounded-full bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-ink shadow-sm">Sistema</span>
+        </div>
+        <div class="flex items-start justify-between gap-5 px-1 pt-5">
+          <div>
+            <h3 class="text-2xl font-bold tracking-tight text-ink">Dashboard Analytics</h3>
+            <p class="mt-1 text-slate-500">Node.js · Express · Pug · Sequelize</p>
+          </div>
+          <span class="grid size-11 shrink-0 place-items-center rounded-full border border-slate-300 text-ink transition-colors group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="size-5">
+              <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </div>
+      </article>
+
+      <article class="group">
+        <div class="relative h-64 overflow-hidden rounded-3xl border border-slate-200 bg-[#f4f6fb] sm:h-80">
+          <Image
+            src={pointApp}
+            alt="Diseño de interfaz para Point App"
+            widths={[640, 960, 1280]}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            loading="lazy"
+            class="h-full w-full object-cover object-top transition-transform duration-500 motion-reduce:transition-none group-hover:scale-[1.025]"
+          />
+          <span class="absolute left-5 top-5 rounded-full bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-ink shadow-sm">UX/UI</span>
+        </div>
+        <div class="flex items-start justify-between gap-5 px-1 pt-5">
+          <div>
+            <h3 class="text-2xl font-bold tracking-tight text-ink">Point App</h3>
+            <p class="mt-1 text-slate-500">Producto digital · Diseño UX/UI</p>
+          </div>
+          <span class="grid size-11 shrink-0 place-items-center rounded-full border border-slate-300 text-ink transition-colors group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="size-5">
+              <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </div>
+      </article>
     </div>
   </div>
 </section>

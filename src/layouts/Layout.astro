@@ -1,14 +1,18 @@
 ---
-import "../styles/layout.css";
+import "../styles/global.css";
 
 interface Props {
   title: string;
-  description?: string;
+  description: string;
   keywords?: string;
   canonical?: string;
   ogtitle?: string;
   ogdescription?: string;
   ogurl?: string;
+  ogimage?: string;
+  ogimagealt?: string;
+  robots?: string;
+  structuredData?: Record<string, unknown>;
 }
 
 const {
@@ -19,31 +23,81 @@ const {
   ogtitle,
   ogdescription,
   ogurl,
+  ogimage,
+  ogimagealt,
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  structuredData,
 } = Astro.props;
+
+const siteOrigin = Astro.site ?? Astro.url.origin;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteOrigin).href;
+const socialTitle = ogtitle ?? title;
+const socialDescription = ogdescription ?? description;
+const socialUrl = ogurl ?? canonicalUrl;
+const socialImage = new URL(ogimage ?? "/og-image.png", siteOrigin).href;
+const socialImageAlt =
+  ogimagealt ?? "Webahna, diseño y desarrollo web que genera resultados";
+const jsonLd = structuredData
+  ? JSON.stringify(structuredData).replace(/</g, "\\u003c")
+  : undefined;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-MX" class="scroll-smooth motion-reduce:scroll-auto">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content={robots} />
+    <meta name="googlebot" content={robots} />
+    <meta name="author" content="Webahna" />
+    <meta name="application-name" content="Webahna" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="preload"
+      href="/fuentes/SFPRODISPLAYREGULAR.OTF"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
-    <link rel="canonical" href={canonical} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es-MX" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
-    <meta property="og:title" content={ogtitle} />
-    <meta property="og:description" content={ogdescription} />
-    <meta property="og:url" content={ogurl} />
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:description" content={socialDescription} />
+    <meta property="og:url" content={socialUrl} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Webahna" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:secure_url" content={socialImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={socialImageAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={socialDescription} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
+
+    {jsonLd && (
+      <script type="application/ld+json" set:html={jsonLd}></script>
+    )}
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JJBK6XY4M"
@@ -60,7 +114,7 @@ const {
 
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body>
+  <body class="m-0 overflow-x-hidden font-sans antialiased">
     <slot />
   </body>
 </html>

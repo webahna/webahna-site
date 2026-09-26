@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fuentes/SFPRODISPLAYREGULAR.OTF") format("opentype");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fuentes/SFPRODISPLAYMEDIUM.OTF") format("opentype");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fuentes/SFPRODISPLAYBOLD.OTF") format("opentype");
+}
+
+@theme {
+  --font-sans: "SF Pro Display", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+  --color-brand: #4665e8;
+  --color-brand-dark: #344ec8;
+  --color-ink: #080c21;
+}
+
+/* Tokens que todavía consume la landing heredada de Los Mochis. */
+:root {
+  --blue: #4b5fe8;
+  --blue-mid: #6b7ff5;
+  --blue-light: #6b7ff5;
+  --blue-pale: #eef0fd;
+  --blue-soft: #f4f5ff;
+  --navy: #0d1117;
+  --navy-mid: #161b26;
+  --navy-soft: #1e2535;
+  --navy-card: #131820;
+  --navy-text: #1a2035;
+  --bg: #ffffff;
+  --bg-alt: #f7f8fc;
+  --bg-card: #ffffff;
+  --border: #e4e7f2;
+  --border-soft: #edeef6;
+  --text-main: #0d1117;
+  --text-body: #3d4463;
+  --text-muted: #7880a0;
+  --gray-100: #f5f6fa;
+  --gray-200: #e4e6ef;
+  --gray-400: #9ea3b5;
+  --gray-600: #5c6070;
+  --gold: #e8a100;
+  --white: #ffffff;
+  --font: "SF Pro Display", sans-serif;
+  --font-head: "SF Pro Display", sans-serif;
+  --mono: "DM Mono", monospace;
+}

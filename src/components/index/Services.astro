@@ -1,71 +1,67 @@
 ---
-import "../../styles/index/services.css";
+const services = [
+  {
+    title: "Desarrollo web a medida",
+    description: "Sitios rápidos, escalables y pensados para convertir visitas en oportunidades reales.",
+    tags: "Astro · React · Next.js",
+  },
+  {
+    title: "Tiendas en línea",
+    description: "E-commerce con catálogo, pagos, envíos y una experiencia de compra fácil de administrar.",
+    tags: "Shopify · WooCommerce · Custom",
+  },
+  {
+    title: "Diseño UX/UI",
+    description: "Interfaces claras y memorables que conectan tus objetivos de negocio con las necesidades del usuario.",
+    tags: "Figma · Wireframes · Prototipos",
+  },
+  {
+    title: "SEO y rendimiento",
+    description: "Optimización técnica para posicionar mejor, cargar más rápido y ofrecer una experiencia impecable.",
+    tags: "Core Web Vitals · SEO técnico",
+  },
+  {
+    title: "Sistemas y automatización",
+    description: "Paneles, APIs y herramientas internas que simplifican procesos y acompañan el crecimiento.",
+    tags: "APIs · Bases de datos · Dashboards",
+  },
+  {
+    title: "Soporte y mejora continua",
+    description: "Mantenimiento, monitoreo y evolución para que tu proyecto siga funcionando como debe.",
+    tags: "Soporte · Seguridad · Optimización",
+  },
+];
 ---
 
-<section id="servicios">
-  <p class="section-label">// Servicios</p>
-  <h2 class="section-title">Todo lo que tu negocio necesita en la web.</h2>
-  <p class="section-subtitle">
-    Desde la idea hasta el lanzamiento. Cada proyecto se trata con atención al
-    detalle y enfoque en resultados reales.
-  </p>
+<section id="servicios" class="scroll-mt-24 bg-[#f4f6fb] py-24 sm:py-28 lg:py-32">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+    <div class="grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-brand">01 / Servicios</p>
+        <h2 class="mt-4 max-w-xl text-balance text-4xl font-bold tracking-[-0.04em] text-ink sm:text-5xl">
+          Todo lo que tu negocio necesita en la web.
+        </h2>
+      </div>
+      <p class="max-w-2xl text-lg leading-8 text-slate-600 lg:justify-self-end">
+        Desde la primera idea hasta el lanzamiento. Unimos estrategia, diseño y
+        tecnología para construir productos digitales que generan resultados.
+      </p>
+    </div>
 
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">🎨</div>
-      <h3>Desarrollo Web Full Stack</h3>
-      <p>
-        Sitios web rápidos, escalables y optimizados para generar resultados
-        reales. Desarrollo frontend y backend a medida.
-      </p>
-      <span class="service-tag">Next.js · React · Node.js · NestJS</span>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">⚡</div>
-      <h3>Tiendas Online</h3>
-      <p>
-        E-commerce completo con catálogo, carrito, pagos, envíos y panel de
-        administración.
-      </p>
-      <span class="service-tag"
-        >E-commerce personalizado · Shopify · WooCommerce</span
-      >
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🛒</div>
-      <h3>Diseño UX/UI</h3>
-      <p>
-        Interfaces modernas enfocadas en conversión, experiencia de usuario y
-        usabilidad.
-      </p>
-      <span class="service-tag">Figma · Wireframes · Prototipos</span>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🔍</div>
-      <h3>SEO y Rendimiento</h3>
-      <p>
-        Optimización técnica para mejorar posicionamiento, velocidad y
-        experiencia de usuario.
-      </p>
-      <span class="service-tag">Core Web Vitals · SEO Técnico</span>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📱</div>
-      <h3>Automatización y Sistemas</h3>
-      <p>
-        Desarrollo de paneles administrativos, APIs, sistemas internos y
-        herramientas empresariales.
-      </p>
-      <span class="service-tag">APIs · Bases de Datos · Dashboards</span>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🔧</div>
-      <h3>Soporte y Mantenimiento</h3>
-      <p>
-        Actualizaciones, monitoreo, seguridad y mejoras continuas para tu
-        proyecto.
-      </p>
-      <span class="service-tag">Soporte continuo · Optimización</span>
+    <div class="mt-14 grid gap-px overflow-hidden rounded-3xl border border-slate-300 bg-slate-300 md:grid-cols-2 lg:grid-cols-3">
+      {services.map((service, index) => (
+        <article class="group flex min-h-80 flex-col bg-white p-7 transition-colors duration-200 hover:bg-[#eef1ff] sm:p-8">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-sm font-bold text-brand">{String(index + 1).padStart(2, "0")}</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="size-6 text-slate-400 transition-[transform,color] duration-200 group-hover:translate-x-1 group-hover:text-brand">
+              <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="mt-12 text-2xl font-bold tracking-tight text-ink">{service.title}</h3>
+          <p class="mt-4 flex-1 text-base leading-7 text-slate-600">{service.description}</p>
+          <p class="mt-8 border-t border-slate-200 pt-5 font-mono text-xs font-medium uppercase tracking-wide text-slate-500">{service.tags}</p>
+        </article>
+      ))}
     </div>
   </div>
 </section>

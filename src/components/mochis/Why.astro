@@ -1,83 +1,36 @@
 ---
-import "../../styles/mochis/why.css";
+const reasons = [
+  ["SEO Local Especializado", "Optimizamos tu sitio para que aparezcas cuando alguien en Los Mochis busque tu servicio en Google Maps y búsqueda orgánica."],
+  ["Entregas en 2 a 4 Semanas", "Sin esperas de meses. Procesos ágiles que llevan tu negocio al mundo digital rápidamente y sin complicaciones."],
+  ["Trato Directo, Sin Intermediarios", "Hablas directo con quien diseña y construye tu sitio. Nada de cuentas de cliente con ejecutivos que no saben nada."],
+  ["Diseño que Funciona en Móvil", "+70% de búsquedas locales son desde el celular. Tu web se ve y funciona perfecto en cualquier pantalla."],
+];
 ---
 
-<!-- POR QUÉ WEBAHNA -->
-<section>
-  <div class="why-grid">
+<section class="overflow-hidden bg-ink py-24 text-white sm:py-28" aria-labelledby="why-title">
+  <div class="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1.15fr_.85fr] lg:items-start lg:px-12">
     <div>
-      <p class="eyebrow">Por qué elegirnos</p>
-      <h2>Somos de aquí.<br />Conocemos el mercado.</h2>
-      <p class="section-sub" style="margin-bottom:2rem;">
-        No somos una agencia genérica. Entendemos cómo busca un cliente en Los
-        Mochis y diseñamos para eso.
-      </p>
-
-      <div class="why-list">
-        <div class="why-item">
-          <div class="why-icon">📍</div>
-          <div>
-            <h3>SEO Local Especializado</h3>
-            <p>
-              Optimizamos tu sitio para que aparezcas cuando alguien en Los
-              Mochis busque tu servicio en Google Maps y búsqueda orgánica.
-            </p>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-icon">⚡</div>
-          <div>
-            <h3>Entregas en 2 a 4 Semanas</h3>
-            <p>
-              Sin esperas de meses. Procesos ágiles que llevan tu negocio al
-              mundo digital rápidamente y sin complicaciones.
-            </p>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-icon">🤝</div>
-          <div>
-            <h3>Trato Directo, Sin Intermediarios</h3>
-            <p>
-              Hablas directo con quien diseña y construye tu sitio. Nada de
-              cuentas de cliente con ejecutivos que no saben nada.
-            </p>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-icon">📱</div>
-          <div>
-            <h3>Diseño que Funciona en Móvil</h3>
-            <p>
-              +70% de búsquedas locales son desde el celular. Tu web se ve y
-              funciona perfecto en cualquier pantalla.
-            </p>
-          </div>
-        </div>
+      <p class="text-sm font-black uppercase tracking-[.2em] text-blue-300">Por qué elegirnos</p>
+      <h2 id="why-title" class="mt-4 max-w-2xl text-balance text-4xl font-black leading-tight tracking-[-.04em] sm:text-5xl">Somos de aquí. Conocemos el mercado.</h2>
+      <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-300">No somos una agencia genérica. Entendemos cómo busca un cliente en Los Mochis y diseñamos para eso.</p>
+      <div class="mt-12 divide-y divide-white/10 border-y border-white/10">
+        {reasons.map(([title, text], index) => (
+          <article class="grid gap-4 py-7 sm:grid-cols-[3rem_1fr]">
+            <span class="grid size-10 place-items-center rounded-full border border-brand/50 bg-brand/10 text-sm font-black text-blue-300">{index + 1}</span>
+            <div><h3 class="text-xl font-extrabold">{title}</h3><p class="mt-2 max-w-2xl leading-7 text-slate-400">{text}</p></div>
+          </article>
+        ))}
       </div>
     </div>
-
-    <div class="why-visual">
-      <div class="testimonial-quote">
-        Antes nadie nos encontraba en Google. A los dos meses de la página ya
-        teníamos clientes nuevos cada semana.
-      </div>
-      <div class="testimonial-author">
-        <div class="author-avatar">MA</div>
-        <div class="author-info">
-          <strong>Miguel Ángel R.</strong>
-          <span>Taller mecánico Los Mochis, Sin.</span>
-        </div>
-      </div>
-      <div class="stars">
-        <span class="star">★</span><span class="star">★</span><span class="star"
-          >★</span
-        >
-        <span class="star">★</span><span class="star">★</span>
-      </div>
-      <p class="rating-note">
-        Uno de más de 20 clientes satisfechos en la región.
-      </p>
-    </div>
+    <figure class="relative lg:sticky lg:top-28">
+      <div class="absolute -inset-5 rotate-3 rounded-[2rem] border border-brand/25 bg-brand/10" aria-hidden="true"></div>
+      <blockquote class="relative rounded-[1.75rem] bg-white p-8 text-ink shadow-2xl sm:p-10">
+        <svg class="size-12 text-brand/20" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path d="M20 10v11c0 10-5 16-14 18l-2-5c5-2 7-5 7-9H5V10h15Zm23 0v11c0 10-5 16-14 18l-2-5c5-2 7-5 7-9h-6V10h15Z" /></svg>
+        <p class="mt-5 text-pretty text-2xl font-bold leading-snug tracking-tight">“Antes nadie nos encontraba en Google. A los dos meses de la página ya teníamos clientes nuevos cada semana.”</p>
+        <div class="mt-7 flex gap-1 text-amber-400" aria-label="5 de 5 estrellas">{Array.from({ length: 5 }).map(() => <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="m10 1.7 2.5 5.1 5.6.8-4 4 .9 5.7-5-2.7-5 2.7.9-5.7-4-4 5.6-.8L10 1.7Z" /></svg>)}</div>
+        <figcaption class="mt-7 border-t border-slate-200 pt-6"><p class="font-extrabold">Miguel Ángel R.</p><p class="mt-1 text-sm text-slate-500">Taller mecánico Los Mochis, Sin.</p></figcaption>
+      </blockquote>
+      <p class="relative mt-6 text-center text-sm text-slate-400">Uno de más de 20 clientes satisfechos en la región.</p>
+    </figure>
   </div>
 </section>

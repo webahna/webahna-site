@@ -1,12 +1,18 @@
 ---
-import "../../styles/mochis/nav.css";
-import webahnaLogo from "../../assets/logo.svg";
+import logo from "../../assets/logo.svg";
 ---
 
-<!-- MOCHIS -->
-<nav>
-  <a href="https://webahna.com" class="nav-logo">
-    <img src={webahnaLogo.src} alt="Webahna Logo" class="logo" />
-  </a>
-  <slot />
-</nav>
+<header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
+  <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 sm:h-20 sm:px-8 lg:px-12" aria-label="Navegación principal">
+    <a href="/" class="shrink-0 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" aria-label="Webahna, inicio">
+      <img src={logo.src} alt="Webahna" class="h-auto w-32 sm:w-36" />
+    </a>
+    <div class="hidden items-center gap-2 rounded-full border border-brand/15 bg-brand/5 px-4 py-2 text-sm font-semibold text-ink md:flex">
+      <svg class="size-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s7-5.6 7-12a7 7 0 1 0-14 0c0 6.4 7 12 7 12Z" /><circle cx="12" cy="9" r="2.5" /></svg>
+      Los Mochis, Sinaloa
+    </div>
+    <a href="#contacto" class="inline-flex min-h-11 items-center justify-center rounded-full bg-brand px-5 text-sm font-bold text-white shadow-[0_5px_0_#253b9c] transition hover:-translate-y-0.5 hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand active:translate-y-0 active:shadow-none motion-reduce:transform-none">
+      Cotiza gratis <span aria-hidden="true">→</span>
+    </a>
+  </nav>
+</header>

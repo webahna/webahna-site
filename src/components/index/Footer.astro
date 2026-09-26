@@ -1,18 +1,36 @@
 ---
-import "../../styles/index/footer.css";
 import webahnaLogo from "../../assets/logo.svg";
+
+interface Props {
+  localPage?: boolean;
+}
+
+const { localPage = false } = Astro.props;
+
+const links = [
+  ["Servicios", "#servicios"],
+  ["Proceso", localPage ? "/#proceso" : "#proceso"],
+  ["Proyectos", localPage ? "/#proyectos" : "#proyectos"],
+  ["Precios", localPage ? "/#precios" : "#precios"],
+  ["Contacto", "#contacto"],
+];
 ---
 
-<footer>
-  <div class="footer-logo">
-    <img src={webahnaLogo.src} alt="Webahna Logo" class="logo" />
+<footer class="bg-white">
+  <div class="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
+    <div class="flex flex-col gap-10 border-b border-slate-200 pb-10 md:flex-row md:items-center md:justify-between">
+      <a href="/" aria-label="Webahna, inicio" class="inline-flex w-fit rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-4">
+        <img src={webahnaLogo.src} width="176" height="40" alt="Webahna" class="h-8 w-auto" />
+      </a>
+      <nav aria-label="Navegación del pie">
+        <ul class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-slate-600">
+          {links.map(([label, href]) => <li><a class="rounded-sm hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand" href={href}>{label}</a></li>)}
+        </ul>
+      </nav>
+    </div>
+    <div class="flex flex-col gap-2 pt-7 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <p>© 2026 Webahna®. Todos los derechos reservados.</p>
+      <p>Diseño y desarrollo web desde México.</p>
+    </div>
   </div>
-  <ul class="footer-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#precios">Precios</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-  <p class="footer-copy">© 2026 Webahna®. Todos los derechos reservados.</p>
 </footer>

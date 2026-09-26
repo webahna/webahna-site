@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Nav from "../components/index/Nav.astro";
+import Nav from "../components/mochis/Nav.astro";
 import Hero from "../components/mochis/Hero.astro";
 import TrustBar from "../components/mochis/TrustBar.astro";
 import Audience from "../components/mochis/Audience.astro";
@@ -11,30 +11,32 @@ import Faq from "../components/mochis/Faq.astro";
 import Cta from "../components/mochis/Cta.astro";
 import Footer from "../components/index/Footer.astro";
 
-const site = import.meta.env.SITE;
-const path = "/diseno-web-los-mochis";
+const canonical = new URL(
+  "/diseno-web-los-mochis/",
+  Astro.site ?? Astro.url.origin,
+).href;
 ---
 
 <Layout
   title="Diseño de Páginas Web en Los Mochis | Webahna"
   description="Creamos páginas web profesionales para negocios en Los Mochis. Diseño moderno, SEO local, optimización para Google y soporte personalizado. Solicita tu cotización."
   keywords="diseño web Los Mochis, páginas web Los Mochis, desarrollo web Sinaloa, agencia web Los Mochis Sinaloa, diseño web Sinaloa, crear página web Los Mochis"
-  canonical={site + path}
+  canonical={canonical}
   ogtitle="Diseño Web en Los Mochis, Sinaloa | Webahna"
   ogdescription="Agencia local de diseño y desarrollo web en Los Mochis. Sitios que posicionan en Google y convierten visitantes en clientes."
-  ogurl={site + path}
+  ogurl={canonical}
 >
-  <Nav>
-    <div class="nav-location">Los Mochis, Sinaloa</div>
-    <a href="#contacto" class="btn-nav">Cotiza gratis →</a>
-  </Nav>
-  <Hero />
-  <TrustBar />
-  <Audience />
-  <Why />
-  <Services />
-  <Zones />
-  <Faq />
-  <Cta />
-  <Footer />
+  <a href="#contenido" class="sr-only z-[100] rounded-md bg-white px-4 py-3 font-bold text-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Saltar al contenido</a>
+  <Nav />
+  <main id="contenido">
+    <Hero />
+    <TrustBar />
+    <Audience />
+    <Why />
+    <Services />
+    <Zones />
+    <Faq />
+    <Cta />
+  </main>
+  <Footer localPage />
 </Layout>
